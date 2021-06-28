@@ -17,11 +17,9 @@ function Login() {
 	return (
 		<PageLayout>
 			<LoginStyled>
-				<Card>
-					<Button variant="primary" onClick={handleLoginClick}>
-						Login with github
-					</Button>
-				</Card>
+				<Button variant="primary" onClick={handleLoginClick}>
+					Login with github
+				</Button>
 			</LoginStyled>
 		</PageLayout>
 	);

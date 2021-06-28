@@ -3,11 +3,11 @@ import "firebase/auth";
 
 if (!Firebase.apps.length) {
 	var config = {
-		apiKey: "AIzaSyBkdcoRg-ftwWH3w9GQiZ60Koi59ITU4cg",
-		authDomain: "authentication-test-5f0e7.firebaseapp.com",
-		projectId: "authentication-test-5f0e7",
-		appId: "1:865778397279:web:f49ebbc78e0f7bc4c1abea",
-		measurementId: "G-C4F01PLEBJ",
+		apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+		authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+		projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+		appId: process.env.REACT_APP_FIREBASE_APP_ID,
+		measurementId: process.env.REACT_APP_FIREBASE_MEASURE_ID,
 	};
 	Firebase.initializeApp(config);
 }
