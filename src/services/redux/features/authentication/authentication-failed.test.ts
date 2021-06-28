@@ -16,7 +16,7 @@ import { selectSessionToken, selectUser } from "./selectors";
 jest.mock("utilities/get-domain-user-by-token");
 jest.mock("services/firebase/authentication", () => ({
 	async loginWithGithub() {
-		return await new Promise((_resolve, reject) => reject("mytoken"));
+		return await new Promise((_resolve, reject) => reject());
 	},
 	async logout() {
 		return await new Promise((_resolve, reject) => reject(null));

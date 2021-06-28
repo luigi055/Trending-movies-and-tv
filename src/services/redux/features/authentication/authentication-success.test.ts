@@ -16,10 +16,13 @@ import {
 } from "./actions";
 import { selectSessionToken, selectUser } from "./selectors";
 
+const tokenStub =
+	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+
 jest.mock("utilities/get-domain-user-by-token");
 jest.mock("services/firebase/authentication", () => ({
 	async loginWithGithub() {
-		return await new Promise((resolve) => resolve("mytoken"));
+		return await new Promise((resolve) => resolve(tokenStub));
 	},
 	async logout() {
 		return await new Promise((resolve) => resolve("hello"));
@@ -43,7 +46,6 @@ describe("Testing the authentication feature", () => {
 
 	it("should call loginSuccess correctly when user login and the provider fetch correct information", async () => {
 		store.dispatch(login());
-		const tokenStub = "mytoken";
 		const calledLoginSuccess = await store.waitFor(AUTH_LOGIN_SUCCESS);
 
 		const state = {
@@ -59,7 +61,6 @@ describe("Testing the authentication feature", () => {
 
 	it("should refresh the session token if there is one saved in cookies", async () => {
 		store.dispatch(refreshSession());
-		const tokenStub = "mytoken";
 		const calledLoginSuccess = await store.waitFor(AUTH_LOGIN_SUCCESS);
 
 		expect(calledLoginSuccess).toEqual(
