@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "services/redux/features/authentication/actions";
 import styled, { css } from "styled-components";
 import { declareCssForMediumView } from "styles/responsive";
+import { Button } from "components";
 
 const Aside = styled.aside`
 	flex-basis: 30%;
@@ -39,7 +40,7 @@ const Navigation = styled.nav`
 const ViewSidebar = () => {
 	const dispatch = useDispatch();
 
-	const handleLogoutClick = async () => {
+	const handleLogoutClick = () => {
 		dispatch(logout());
 	};
 
@@ -53,7 +54,7 @@ const ViewSidebar = () => {
 					Settings
 				</NavLink>
 			</Navigation>
-			<button onClick={handleLogoutClick}>Logout</button>
+			<Button onClick={handleLogoutClick}>Logout</Button>
 		</Aside>
 	);
 };

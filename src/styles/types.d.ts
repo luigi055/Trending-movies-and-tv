@@ -4,7 +4,6 @@ interface Theme {
 	onPrimaryColor: string;
 	onPrimaryVariantColor: string;
 	backgroundColor: string;
-	backgroundVariantColor: string;
 	onBackgroundColor: string;
 	fontFamily: string;
 	fontSize: string;

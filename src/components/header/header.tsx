@@ -1,4 +1,4 @@
-import UserCard from "components/cards/user-card";
+import { UserCard } from "components";
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`

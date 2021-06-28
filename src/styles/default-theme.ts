@@ -4,7 +4,6 @@ const defaultTheme: Theme = {
 	onPrimaryColor: "#2C2E30",
 	onPrimaryVariantColor: "#fff",
 	backgroundColor: "#fff",
-	backgroundVariantColor: "#fff8e5",
 	onBackgroundColor: "#2C2E30",
 	fontFamily: "Poppins",
 	fontSize: "16px",

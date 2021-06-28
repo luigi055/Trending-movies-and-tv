@@ -1,6 +1,6 @@
 import { UserCardStyled, TextBox, Avatar } from "./styled";
 
-const UserCard: React.FC<UserCardProps> = ({
+export const UserCard: React.FC<UserCardProps> = ({
 	name = "",
 	email = "",
 	avatar = "",
@@ -15,5 +15,3 @@ const UserCard: React.FC<UserCardProps> = ({
 		</UserCardStyled>
 	);
 };
-
-export default UserCard;

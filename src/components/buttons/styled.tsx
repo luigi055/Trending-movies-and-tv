@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<ButtonProps>`
 	cursor: pointer;
 	display: inline-block;
-	font-weight: 400;
+	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;
 	user-select: none;
@@ -13,15 +13,12 @@ export const StyledButton = styled.button`
 	line-height: 1.5;
 	border-radius: 0;
 	transition: all 0.15s ease-in-out;
-	background: black;
-	color: white;
+	background: ${({ variant, theme }) =>
+		variant === "primary" ? theme.primaryColor : theme.backgroundColor};
+	color: ${({ variant, theme }) =>
+		variant === "primary" ? theme.onPrimaryColor : theme.onBackgroundColor};
 
 	&:focus {
 		outline: 0;
-	}
-
-	&:disabled {
-		cursor: inherit;
-		opacity: grey;
 	}
 `;
