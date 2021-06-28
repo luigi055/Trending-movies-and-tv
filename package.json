@@ -23,7 +23,8 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"test:ci": "npx cross-env CI=true react-scripts test --coverage"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -54,7 +55,9 @@
 		"@types/react-dom": "^17.0.0",
 		"@types/react-redux": "^7.1.16",
 		"@types/react-router-dom": "^5.1.7",
+		"@types/redux-saga-tester": "^1.0.2",
 		"@types/styled-components": "^5.1.10",
-		"redux-devtools-extension": "^2.13.9"
+		"redux-devtools-extension": "^2.13.9",
+		"redux-saga-tester": "^1.0.874"
 	}
 }

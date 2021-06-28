@@ -12,4 +12,7 @@ if (!Firebase.apps.length) {
 	Firebase.initializeApp(config);
 }
 
+export const githubProvider = new Firebase.auth.GithubAuthProvider();
+githubProvider.addScope("repo");
+
 export default Firebase;

@@ -4,28 +4,15 @@ import {
 	AUTH_REFRESH_SESSION,
 	loginFailed,
 	loginSuccess,
+	logoutFailed,
+	logoutSuccess,
 } from "./actions";
 import { put, call, takeLatest, fork } from "redux-saga/effects";
 import { SagaIterator } from "redux-saga";
-import jwt from "jsonwebtoken";
 import { getCookie, setCookie } from "services/cookies";
 import { loginWithGithub, logout } from "services/firebase/authentication";
 import { startLoading, stopLoading } from "../loading";
-import User from "models/user";
-
-const getDomainUserByToken = (token: string): IUser | null => {
-	const rawUser = jwt.decode(token) as GitHubRawUser;
-	if (!rawUser) return null;
-
-	const user = new User({
-		id: rawUser?.user_id,
-		name: rawUser?.name,
-		email: rawUser?.email,
-		avatar: rawUser?.picture,
-	});
-
-	return user;
-};
+import { getDomainUserByToken } from "utilities/get-domain-user-by-token";
 
 export function* LoginSaga(): SagaIterator {
 	try {
@@ -52,8 +39,14 @@ export function* refreshSession(): SagaIterator {
 }
 
 export function* logoutSession(): SagaIterator {
-	yield call(logout);
-	setCookie("access_token", "", 0);
+	try {
+		yield call(logout);
+		setCookie("access_token", "", 0);
+
+		yield put(logoutSuccess());
+	} catch (error) {
+		yield put(logoutFailed());
+	}
 }
 
 function* loginSaga() {

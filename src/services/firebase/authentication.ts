@@ -1,6 +1,4 @@
-import Firebase from "./config";
-const githubProvider = new Firebase.auth.GithubAuthProvider();
-githubProvider.addScope("repo");
+import Firebase, { githubProvider } from "./config";
 
 export const loginWithGithub = async () => {
 	try {
