@@ -10,10 +10,10 @@ type ThemeInterpolation =
 	| Interpolation<ThemeProps<Theme>>;
 
 export const declareCssForMediumView = (
-	cssForLargeView: ThemeInterpolation
+	breakPointStyles: ThemeInterpolation
 ) => css`
 	@media screen and (min-width: ${({ theme }) =>
 			`${theme.mediumBreakPoint}${theme.breakPointUnit}`}) {
-		${cssForLargeView}
+		${breakPointStyles}
 	}
 `;

@@ -9,5 +9,6 @@ interface Theme {
 	fontFamily: string;
 	fontSize: string;
 	mediumBreakPoint: number;
+	gutter: string;
 	breakPointUnit: string;
 }

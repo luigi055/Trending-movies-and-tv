@@ -13,7 +13,7 @@ ${({ theme }) =>
 	css`
 		:root {
 			--base-size: 0.95rem;
-			--type-scale: 1.15;
+			--type-scale: 1.1;
 			--h3: calc(var(--base-size) * var(--type-scale));
 			--h2: calc(var(--h3) * var(--type-scale));
 			--h1: calc(var(--h2) * var(--type-scale));
@@ -53,7 +53,8 @@ ${({ theme }) =>
 			margin: 0;
 		}
 
-		#root {
+		#root,
+		.App {
 			height: 100%;
 			position: relative;
 		}

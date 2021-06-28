@@ -1,10 +1,20 @@
-import Header from "components/stateful/header";
+import { Container, Main, PageLayout, TitleDecoration } from "components";
+import { ViewSidebar, ViewHeader } from "views/components";
 
-const Settings = () => (
-	<div>
-		<Header />
-		<h1>Settings</h1>
-	</div>
-);
+const Settings = () => {
+	return (
+		<PageLayout>
+			<ViewHeader title="Settings" />
+			<Container>
+				<ViewSidebar />
+				<Main>
+					<TitleDecoration>
+						<h2>Main Content</h2>
+					</TitleDecoration>
+				</Main>
+			</Container>
+		</PageLayout>
+	);
+};
 
 export default Settings;

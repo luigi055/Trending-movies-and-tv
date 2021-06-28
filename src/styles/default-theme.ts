@@ -1,6 +1,6 @@
 const defaultTheme: Theme = {
-	primaryColor: "#fce094",
-	primaryVariantColor: "#f7b500",
+	primaryColor: "#f7b500",
+	primaryVariantColor: "#fce094",
 	onPrimaryColor: "#2C2E30",
 	onPrimaryVariantColor: "#fff",
 	backgroundColor: "#fff",
@@ -9,6 +9,7 @@ const defaultTheme: Theme = {
 	fontFamily: "Poppins",
 	fontSize: "16px",
 	mediumBreakPoint: 48,
+	gutter: "15px",
 	breakPointUnit: "rem",
 };
 
