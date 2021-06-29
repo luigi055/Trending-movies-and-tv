@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Dashboard from "./dashboard";
 import { logout } from "services/redux/features/authentication/actions";
 import { BrowserRouter as Router } from "react-router-dom";
+import { DASHBOARD, SETTINGS } from "routes/routes-config";
 
 jest.mock("react-redux", () => ({
 	...jest.requireActual("react-redux"),
@@ -36,6 +37,16 @@ describe("Testing the Dashboard page", () => {
 		const dashboardTitle = getByTestId("header__title");
 
 		expect(dashboardTitle).toHaveTextContent("Dashboard");
+	});
+
+	it("should links point to the correct URI", () => {
+		const { getByTestId } = screen;
+
+		const sidebarLinkToDashboard = getByTestId("sidebar__nav-link__dashboard");
+		const sidebarLinkToSettings = getByTestId("sidebar__nav-link__settings");
+
+		expect(sidebarLinkToDashboard).toHaveAttribute("href", DASHBOARD);
+		expect(sidebarLinkToSettings).toHaveAttribute("href", SETTINGS);
 	});
 
 	it("should show the logout button with github button", () => {

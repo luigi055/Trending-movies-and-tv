@@ -47,10 +47,18 @@ const ViewSidebar = () => {
 	return (
 		<Aside>
 			<Navigation>
-				<NavLink to={DASHBOARD} activeClassName="active-link">
+				<NavLink
+					to={DASHBOARD}
+					data-testid="sidebar__nav-link__dashboard"
+					activeClassName="active-link"
+				>
 					Dashboard
 				</NavLink>
-				<NavLink to={SETTINGS} activeClassName="active-link">
+				<NavLink
+					to={SETTINGS}
+					data-testid="sidebar__nav-link__settings"
+					activeClassName="active-link"
+				>
 					Settings
 				</NavLink>
 			</Navigation>
