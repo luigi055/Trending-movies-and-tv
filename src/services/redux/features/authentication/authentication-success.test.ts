@@ -13,11 +13,11 @@ import {
 	refreshSession,
 } from "./actions";
 import { selectSessionToken, selectUser } from "./selectors";
-import { getDomainUserByToken } from "utilities/get-domain-user-by-token";
+import { getUserByGithubToken } from "models/get-user-by-github-token";
 
 const tokenStub =
 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaWN0dXJlIjoiaHR0dHA6Ly91cmwuY29tL2ltYWdlLnBuZyIsImVtYWlsIjoiam9obmRvZUByZWFjdC5jb20iLCJ1c2VyX2lkIjoiMTJ3ZjN3ZWY0c3NhczUiLCJuYW1lIjoiamhvbiBkb2UifQ.YPTFZ5zV1xHbPGMTAEgASHyQiL4AkmVfT0H707zD9eU";
-const userStub = getDomainUserByToken(tokenStub);
+const userStub = getUserByGithubToken(tokenStub);
 
 jest.mock("services/firebase/authentication", () => ({
 	async loginWithGithub() {

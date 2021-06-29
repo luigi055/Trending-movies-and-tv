@@ -1,12 +1,13 @@
+import faker from "faker";
 import User from "./user";
 
 describe("Testing User model", () => {
 	it("should create a new user", () => {
 		const userStub = {
-			id: "a1fd33",
-			name: "Pedro La Rosa",
-			email: "pedro@admin.com",
-			avatar: "url",
+			id: faker.datatype.uuid(),
+			avatar: faker.internet.avatar(),
+			email: faker.internet.email(),
+			name: faker.name.findName(),
 		};
 		const user = new User(userStub);
 

@@ -12,14 +12,14 @@ import { SagaIterator } from "redux-saga";
 import { getCookie, setCookie } from "services/cookies";
 import { loginWithGithub, logout } from "services/firebase/authentication";
 import { startLoading, stopLoading } from "../loading";
-import { getDomainUserByToken } from "utilities/get-domain-user-by-token";
+import { getUserByGithubToken } from "models/get-user-by-github-token";
 
 export function* LoginSaga(): SagaIterator {
 	try {
 		yield put(startLoading());
 
 		const sessionToken = yield call(loginWithGithub);
-		const user = getDomainUserByToken(sessionToken);
+		const user = getUserByGithubToken(sessionToken);
 
 		setCookie("access_token", sessionToken, 1);
 
@@ -33,7 +33,7 @@ export function* LoginSaga(): SagaIterator {
 
 export function* refreshSession(): SagaIterator {
 	const sessionToken = getCookie("access_token");
-	const user = getDomainUserByToken(sessionToken);
+	const user = getUserByGithubToken(sessionToken);
 
 	yield put(loginSuccess({ user, session_token: sessionToken }));
 }

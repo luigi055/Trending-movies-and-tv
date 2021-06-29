@@ -13,7 +13,6 @@ import {
 } from "./actions";
 import { selectSessionToken, selectUser } from "./selectors";
 
-jest.mock("utilities/get-domain-user-by-token");
 jest.mock("services/firebase/authentication", () => ({
 	async loginWithGithub() {
 		return await new Promise((_resolve, reject) => reject());

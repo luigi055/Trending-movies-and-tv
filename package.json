@@ -48,6 +48,7 @@
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
+		"@types/faker": "^5.5.6",
 		"@types/jest": "^26.0.15",
 		"@types/jsonwebtoken": "^8.5.2",
 		"@types/node": "^12.0.0",
@@ -57,6 +58,7 @@
 		"@types/react-router-dom": "^5.1.7",
 		"@types/redux-saga-tester": "^1.0.2",
 		"@types/styled-components": "^5.1.10",
+		"faker": "^5.5.3",
 		"redux-devtools-extension": "^2.13.9",
 		"redux-saga-tester": "^1.0.874"
 	}
