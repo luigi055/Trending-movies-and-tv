@@ -48,7 +48,7 @@ describe("Testing the authentication feature", () => {
 
 		expect(calledLoginFailed).toEqual(loginFailed());
 		expect(selectUser(state)).toEqual(null);
-		expect(selectSessionToken(state)).toEqual(null);
+		expect(selectSessionToken(state)).toEqual(undefined);
 	});
 
 	it("should call logoutFailed when the service fails to logout the user", async () => {

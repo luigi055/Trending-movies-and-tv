@@ -1,14 +1,13 @@
 import { render } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { setStore } from "services/redux";
+import { ConnectedComponent } from "utilities/test-utils/wrappers";
 import App from "./app";
 
 describe("Test application core", () => {
 	it("should render properly", () => {
 		const { container } = render(
-			<Provider store={setStore()}>
+			<ConnectedComponent>
 				<App />
-			</Provider>
+			</ConnectedComponent>
 		);
 
 		expect(container).toBeInTheDocument();

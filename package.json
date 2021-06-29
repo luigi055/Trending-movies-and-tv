@@ -44,7 +44,8 @@
 	"jest": {
 		"collectCoverageFrom": [
 			"!src/reportWebVitals.ts",
-			"!src/index.tsx"
+			"!src/index.tsx",
+			"!src/services/redux/debug/*"
 		]
 	},
 	"devDependencies": {
