@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import { DASHBOARD, SETTINGS } from "routes/routes-config";
+import { NavLink, useHistory } from "react-router-dom";
+import { DASHBOARD, LOGIN, SETTINGS } from "routes/routes-config";
 import { useDispatch } from "react-redux";
 import { logout } from "services/redux/features/authentication/actions";
 import styled, { css } from "styled-components";
@@ -39,9 +39,10 @@ const Navigation = styled.nav`
 
 const ViewSidebar = () => {
 	const dispatch = useDispatch();
-
+	const history = useHistory();
 	const handleLogoutClick = () => {
 		dispatch(logout());
+		history.push(LOGIN);
 	};
 
 	return (

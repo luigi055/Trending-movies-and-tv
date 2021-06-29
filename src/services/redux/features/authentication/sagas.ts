@@ -34,13 +34,24 @@ export function* LoginSaga(): SagaIterator {
 export function* refreshSession(): SagaIterator {
 	const sessionToken = getCookie("access_token");
 	const user = getUserByGithubToken(sessionToken);
-
-	yield put(loginSuccess({ user, session_token: sessionToken }));
+	if (sessionToken) {
+		yield put(loginSuccess({ user, session_token: sessionToken }));
+	} else {
+		/**
+		 * session_token to null because has been verified that's
+		 * there is no session
+		 */
+		yield put(loginSuccess({ user: null, session_token: null }));
+	}
 }
 
 export function* logoutSession(): SagaIterator {
 	try {
 		yield call(logout);
+		/**
+		 * session_token to undefined because it doesn't exist anymore
+		 * this flow makes the route services easier to manage private routes
+		 */
 		setCookie("access_token", "", 0);
 
 		yield put(logoutSuccess());

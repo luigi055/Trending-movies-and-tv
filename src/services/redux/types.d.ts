@@ -2,7 +2,7 @@ interface State {
 	isLoading: boolean;
 	authentication: {
 		user: IUser | null;
-		session_token: string | nul;
+		session_token?: string | null;
 	};
 }
 

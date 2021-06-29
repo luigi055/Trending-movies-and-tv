@@ -9,13 +9,15 @@ export const PrivateRoute: React.FC<CustomRouteProps> = ({
 	component: Component,
 	...rest
 }) => {
-	const isLoggedIn = !!useSelector(selectSessionToken);
+	const isLoggedIn = useSelector(selectSessionToken);
 
 	return (
 		<Route
 			{...rest}
 			render={(props) => {
-				return isLoggedIn ? <Component {...props} /> : <Redirect to={LOGIN} />;
+				if (!!isLoggedIn) return <Component {...props} />;
+				if (isLoggedIn === undefined) return null;
+				return <Redirect to={LOGIN} />;
 			}}
 		/>
 	);
