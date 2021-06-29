@@ -13,9 +13,8 @@ export const TitleDecoration = styled.div`
 	border-radius: 10px 0 0 0;
 `;
 
-export const Heading = styled("h1")<HeadingProps>`
-	font-weight: ${({ isFontWeightNormal }) =>
-		isFontWeightNormal ? "400" : "700"};
+export const Heading = styled("h1")`
+	font-weight: 700;
 	${textStyles}
 	line-height: 1.13;
 	color: ${({ theme }) => theme.onPrimaryColor};
