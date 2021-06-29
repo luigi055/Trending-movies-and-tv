@@ -7,11 +7,14 @@ export const loginWithGithub = async () => {
 
 		return token;
 	} catch (error) {
-		console.error("Error trying to login with github", error);
 		alert("Error trying to login with github");
 	}
 };
 
 export const logout = async () => {
-	await Firebase.auth().signOut();
+	try {
+		await Firebase.auth().signOut();
+	} catch (error) {
+		alert("Error trying to logout");
+	}
 };
