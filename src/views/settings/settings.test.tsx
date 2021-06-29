@@ -1,4 +1,3 @@
-import faker from "faker";
 import { render, screen } from "@testing-library/react";
 import Settings from "./settings";
 import { getSeries } from "services/redux/features/movies/actions";
@@ -84,7 +83,7 @@ describe("Testing the Settings page", () => {
 		expect(logout).toHaveBeenCalledTimes(1);
 	});
 
-	it("should show the movie data", () => {
+	it("should show the serie data", () => {
 		const { getAllByTestId } = screen;
 
 		const movieCards = getAllByTestId("movie-card");
@@ -103,5 +102,17 @@ describe("Testing the Settings page", () => {
 		expect((img as HTMLImageElement).src).toContain(mockedMovies.posterImage);
 		expect(dateTime?.textContent).toContain(formatDate(mockedMovies.releaseAt));
 		expect(rating?.textContent).toContain(mockedMovies.rating);
+	});
+
+	it("should display the loading icon when there is no series to show", () => {
+		render(
+			<ConnectedComponent store={setStore(generateMovies({ isLoading: true }))}>
+				<Settings />
+			</ConnectedComponent>
+		);
+
+		const { getByTestId } = screen;
+
+		expect(getByTestId("loading")).toBeInTheDocument();
 	});
 });

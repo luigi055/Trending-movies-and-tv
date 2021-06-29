@@ -24,7 +24,7 @@ const Settings = () => {
 		dispatch(getSeries());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	if (isLoading) return <h1>Loading...</h1>;
+	if (isLoading) return <h1 data-testid="loading">Loading...</h1>;
 
 	return (
 		<PageLayout>

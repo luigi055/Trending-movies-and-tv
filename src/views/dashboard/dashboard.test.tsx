@@ -1,25 +1,39 @@
 import { render, screen } from "@testing-library/react";
 import Dashboard from "./dashboard";
+import { getMovies } from "services/redux/features/movies/actions";
 import { logout } from "services/redux/features/authentication/actions";
-import { BrowserRouter as Router } from "react-router-dom";
+import { generateMovies } from "utilities/test-utils/stubs";
 import { DASHBOARD, SETTINGS } from "routes/routes-config";
+import { setStore } from "services/redux";
+import Movie from "models/movie";
+import { ConnectedComponent } from "utilities/test-utils/wrappers";
+import formatDate from "utilities/format-date";
 
 jest.mock("react-redux", () => ({
 	...jest.requireActual("react-redux"),
-	useSelector: jest.fn(),
 	useDispatch: () => jest.fn(),
 }));
-
+jest.mock("services/redux/features/movies/actions");
 jest.mock("services/redux/features/authentication/actions");
 
 const signOutButtonTestId = "signout__btn";
 
+const mockedMovies = new Movie({
+	id: "agargas",
+	rating: 9.1,
+	posterImage: "/path",
+	title: "name",
+	releaseAt: "2020-01-13",
+});
+
 describe("Testing the Dashboard page", () => {
 	beforeEach(() => {
 		render(
-			<Router>
+			<ConnectedComponent
+				store={setStore(generateMovies({ movies: [mockedMovies] }))}
+			>
 				<Dashboard />
-			</Router>
+			</ConnectedComponent>
 		);
 	});
 
@@ -63,5 +77,38 @@ describe("Testing the Dashboard page", () => {
 		signOutButton.click();
 
 		expect(logout).toHaveBeenCalledTimes(1);
+	});
+
+	it("should show the Movie data", () => {
+		const { getAllByTestId } = screen;
+
+		const movieCards = getAllByTestId("movie-card");
+		const title = movieCards[0].querySelector(
+			"[data-testid='movie-card__title']"
+		);
+		const img = movieCards[0].querySelector("[data-testid='movie-card__img']");
+		const dateTime = movieCards[0].querySelector(
+			"[data-testid='movie-card__time']"
+		);
+		const rating = movieCards[0].querySelector(
+			"[data-testid='movie-card__rating']"
+		);
+
+		expect(title).toHaveTextContent(mockedMovies.title);
+		expect((img as HTMLImageElement).src).toContain(mockedMovies.posterImage);
+		expect(dateTime?.textContent).toContain(formatDate(mockedMovies.releaseAt));
+		expect(rating?.textContent).toContain(mockedMovies.rating);
+	});
+
+	it("should display the loading icon when there is no movies to show", () => {
+		render(
+			<ConnectedComponent store={setStore(generateMovies({ isLoading: true }))}>
+				<Dashboard />
+			</ConnectedComponent>
+		);
+
+		const { getByTestId } = screen;
+
+		expect(getByTestId("loading")).toBeInTheDocument();
 	});
 });

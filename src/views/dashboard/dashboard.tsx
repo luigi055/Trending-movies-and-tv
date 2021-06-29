@@ -1,6 +1,7 @@
 import {
 	Container,
 	DesignH2,
+	DesignH3,
 	Main,
 	PageLayout,
 	TitleDecoration,
@@ -18,13 +19,13 @@ const Dashboard = () => {
 	const dispatch = useDispatch();
 	const movies = useSelector(selectMovies);
 	const isLoading = useSelector(selectIsLoading);
-	console.warn(movies);
+
 	useEffect(() => {
 		dispatch(getMovies());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	if (isLoading) return <h1>Loading...</h1>;
+	if (isLoading) return <h1 data-testid="loading">Loading...</h1>;
 
 	return (
 		<PageLayout>
@@ -37,17 +38,22 @@ const Dashboard = () => {
 					</TitleDecoration>
 					<ScrollBox>
 						{movies.map((movie) => (
-							<Card key={movie.id}>
+							<Card data-testid="movie-card" key={movie.id}>
 								<img
+									data-testid="movie-card__img"
 									src={`${movie.posterImage}`}
 									alt={`poster ${movie.title}`}
 									loading="lazy"
 								/>
-								<h3>{movie.title}</h3>
-								<time dateTime={movie.releaseAt}>
+								<DesignH3 data-testid="movie-card__title">
+									{movie.title}
+								</DesignH3>
+								<time data-testid="movie-card__time" dateTime={movie.releaseAt}>
 									release date: {formatDate(movie.releaseAt)}
 								</time>
-								<h3>Vote average: {movie.rating}</h3>
+								<DesignH3 data-testid="movie-card__rating" as="p">
+									Vote average: {movie.rating}
+								</DesignH3>
 							</Card>
 						))}
 					</ScrollBox>
