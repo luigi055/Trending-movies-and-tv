@@ -5,6 +5,7 @@ import {
 	PageLayout,
 	TitleDecoration,
 	Card,
+	DesignH3,
 } from "components";
 import { useEffect } from "react";
 import { ViewSidebar, ViewHeader, ScrollBox } from "views/_shared";
@@ -23,7 +24,6 @@ const Settings = () => {
 		dispatch(getSeries());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
 	if (isLoading) return <h1>Loading...</h1>;
 
 	return (
@@ -37,17 +37,22 @@ const Settings = () => {
 					</TitleDecoration>
 					<ScrollBox>
 						{series.map((serie) => (
-							<Card key={serie.id}>
+							<Card data-testid="movie-card" key={serie.id}>
 								<img
+									data-testid="movie-card__img"
 									src={`${serie.posterImage}`}
 									alt={`poster ${serie.title}`}
 									loading="lazy"
 								/>
-								<h3>{serie.title}</h3>
-								<time dateTime={serie.releaseAt}>
+								<DesignH3 data-testid="movie-card__title">
+									{serie.title}
+								</DesignH3>
+								<time data-testid="movie-card__time" dateTime={serie.releaseAt}>
 									release date: {formatDate(serie.releaseAt)}
 								</time>
-								<h3>Vote average: {serie.rating}</h3>
+								<DesignH3 data-testid="movie-card__rating" as="p">
+									Vote average: {serie.rating}
+								</DesignH3>
 							</Card>
 						))}
 					</ScrollBox>
