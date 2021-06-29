@@ -1,5 +1,3 @@
-// eslint-disable-next-line jest/no-mocks-import
-import { userStub } from "utilities/__mocks__/user-mock";
 import { all } from "redux-saga/effects";
 import SagaTester from "redux-saga-tester";
 import initialState from "./initial-state";
@@ -15,11 +13,12 @@ import {
 	refreshSession,
 } from "./actions";
 import { selectSessionToken, selectUser } from "./selectors";
+import { getDomainUserByToken } from "utilities/get-domain-user-by-token";
 
 const tokenStub =
-	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaWN0dXJlIjoiaHR0dHA6Ly91cmwuY29tL2ltYWdlLnBuZyIsImVtYWlsIjoiam9obmRvZUByZWFjdC5jb20iLCJ1c2VyX2lkIjoiMTJ3ZjN3ZWY0c3NhczUiLCJuYW1lIjoiamhvbiBkb2UifQ.YPTFZ5zV1xHbPGMTAEgASHyQiL4AkmVfT0H707zD9eU";
+const userStub = getDomainUserByToken(tokenStub);
 
-jest.mock("utilities/get-domain-user-by-token");
 jest.mock("services/firebase/authentication", () => ({
 	async loginWithGithub() {
 		return await new Promise((resolve) => resolve(tokenStub));
