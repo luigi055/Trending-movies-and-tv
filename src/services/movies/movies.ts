@@ -1,7 +1,15 @@
-export const fetchTrendingMoviesByPage = async (
+async function fetchTrendingMoviesByPage(
 	page: number,
-	type: "tv" | "movie" = "movie"
-): Promise<RawTMDBMovie[] | undefined> => {
+	type: "tv"
+): Promise<RawTMDBSerie[] | undefined>;
+async function fetchTrendingMoviesByPage(
+	page: number,
+	type: "movie"
+): Promise<RawTMDBMovie[] | undefined>;
+async function fetchTrendingMoviesByPage(
+	page: number,
+	type: any
+): Promise<any> {
 	try {
 		const { results } = await (
 			await fetch(
@@ -19,4 +27,6 @@ export const fetchTrendingMoviesByPage = async (
 	} catch (error) {
 		alert(`Error trying to fetching trending ${type}`);
 	}
-};
+}
+
+export { fetchTrendingMoviesByPage };

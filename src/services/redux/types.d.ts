@@ -4,6 +4,10 @@ interface State {
 		user: IUser | null;
 		session_token?: string | null;
 	};
+	movies: {
+		movies: IMovie[];
+		series: IMovie[];
+	};
 }
 
 interface ActionStandardBase {

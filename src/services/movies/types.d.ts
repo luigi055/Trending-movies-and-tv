@@ -1,7 +1,13 @@
-interface RawTMDBMovie {
+interface rawTMDB {
 	id: string;
 	poster_path: string;
-	title: string;
-	vote_average: number;
 	release_date: string;
+	vote_average: number;
+}
+interface RawTMDBMovie extends rawTMDB {
+	title: string;
+}
+
+interface RawTMDBSerie extends rawTMDB {
+	name: string;
 }

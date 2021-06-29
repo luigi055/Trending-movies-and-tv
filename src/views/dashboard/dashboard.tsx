@@ -6,43 +6,26 @@ import {
 	TitleDecoration,
 	Card,
 } from "components";
-import { useEffect, useState } from "react";
-import { fetchTrendingMoviesByPage } from "services/movies";
+import { useEffect } from "react";
 import { ViewSidebar, ViewHeader, ScrollBox } from "views/_shared";
-
-import Movie from "models/movie";
-
-const formatDate = (date: string | number | Date) =>
-	new Date(date).toLocaleDateString("en", {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-	});
+import { useDispatch, useSelector } from "react-redux";
+import { getMovies } from "services/redux/features/movies/actions";
+import { selectMovies } from "services/redux/features/movies/selectors";
+import { selectIsLoading } from "services/redux/features/loading";
+import formatDate from "utilities/format-date";
 
 const Dashboard = () => {
-	const [movies, setMovies] = useState<IMovie[]>([]);
+	const dispatch = useDispatch();
+	const movies = useSelector(selectMovies);
+	const isLoading = useSelector(selectIsLoading);
+	console.warn(movies);
 	useEffect(() => {
-		(async () => {
-			try {
-				const rawMovies = await fetchTrendingMoviesByPage(1);
-
-				const movies = rawMovies?.map(
-					(rawMovie) =>
-						new Movie({
-							id: rawMovie.id,
-							rating: rawMovie.vote_average,
-							posterImage: `${process.env.REACT_APP_TMDB_IMAGE_STORAGE_URI}/${rawMovie.poster_path}`,
-							title: rawMovie.title,
-							releaseAt: rawMovie.release_date,
-						})
-				);
-
-				setMovies(movies!);
-			} catch (error) {
-				alert("Error trying to retrieving movies");
-			}
-		})();
+		dispatch(getMovies());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	if (isLoading) return <h1>Loading...</h1>;
+
 	return (
 		<PageLayout>
 			<ViewHeader title="Dashboard" />
@@ -58,6 +41,7 @@ const Dashboard = () => {
 								<img
 									src={`${movie.posterImage}`}
 									alt={`poster ${movie.title}`}
+									loading="lazy"
 								/>
 								<h3>{movie.title}</h3>
 								<time dateTime={movie.releaseAt}>
