@@ -1,5 +1,5 @@
 import faker from "faker";
-import User from "./user";
+import User from ".";
 
 describe("Testing User model", () => {
 	it("should create a new user", () => {

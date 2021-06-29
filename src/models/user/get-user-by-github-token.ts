@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "models/user";
 
-export const getUserByGithubToken = (token: string): IUser | null => {
+const getUserByGithubToken = (token: string): IUser | null => {
 	const rawUser = jwt.decode(token) as GitHubRawUser;
 	if (!rawUser) return null;
 
@@ -14,3 +14,5 @@ export const getUserByGithubToken = (token: string): IUser | null => {
 
 	return user;
 };
+
+export default getUserByGithubToken;

@@ -12,7 +12,7 @@ import { SagaIterator } from "redux-saga";
 import { getCookie, setCookie } from "services/cookies";
 import { loginWithGithub, logout } from "services/firebase/authentication";
 import { startLoading, stopLoading } from "../loading";
-import { getUserByGithubToken } from "models/get-user-by-github-token";
+import { getUserByGithubToken } from "models/user";
 
 export function* LoginSaga(): SagaIterator {
 	try {

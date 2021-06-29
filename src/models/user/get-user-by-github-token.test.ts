@@ -1,4 +1,4 @@
-import { getUserByGithubToken } from "./get-user-by-github-token";
+import getUserByGithubToken from "./get-user-by-github-token";
 import jwt from "jsonwebtoken";
 import faker from "faker";
 
