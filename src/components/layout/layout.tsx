@@ -20,11 +20,6 @@ export const CenteredMainElement = styled.div`
 	justify-content: center;
 `;
 
-export const Layout = styled.aside`
-	padding-left: ${({ theme }) => theme.gutter};
-	padding-right: ${({ theme }) => theme.gutter};
-`;
-
 export const Main = styled.main`
 	box-shadow: 0px 2px 16px 0 rgba(0, 0, 0, 0.16);
 	flex-grow: 100;

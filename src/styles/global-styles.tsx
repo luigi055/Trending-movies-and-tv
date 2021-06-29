@@ -14,7 +14,7 @@ ${({ theme }) =>
 		:root {
 			/*Responsive font auto scaling */
 			--base-size: 0.95rem;
-			--type-scale: 1.1;
+			--type-scale: 1.05;
 			--h3: calc(var(--base-size) * var(--type-scale));
 			--h2: calc(var(--h3) * var(--type-scale));
 			--h1: calc(var(--h2) * var(--type-scale));
