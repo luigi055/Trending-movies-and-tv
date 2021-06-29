@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components";
-import { declareCssForMediumView } from "styles/responsive";
+import styled from "styled-components";
 
 export const PageLayout = styled.div`
 	display: flex;
@@ -15,10 +14,10 @@ export const Container = styled.div`
 `;
 
 export const CenteredMainElement = styled.div`
-	display: flex;
-	justify-content: center;
 	align-items: center;
+	display: flex;
 	flex-grow: 100;
+	justify-content: center;
 `;
 
 export const Layout = styled.aside`

@@ -22,6 +22,22 @@ describe("Testing the Settings page", () => {
 		);
 	});
 
+	it("should show the settings title", () => {
+		const { getByTestId } = screen;
+
+		const dashboardTitle = getByTestId("settings__title");
+
+		expect(dashboardTitle).toHaveTextContent("Settings");
+	});
+
+	it("should show the correct header title", () => {
+		const { getByTestId } = screen;
+
+		const dashboardTitle = getByTestId("header__title");
+
+		expect(dashboardTitle).toHaveTextContent("Settings");
+	});
+
 	it("should show the logout button with github button", () => {
 		const { getByTestId } = screen;
 		const signOutButton = getByTestId(signOutButtonTestId);

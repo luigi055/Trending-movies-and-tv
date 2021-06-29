@@ -1,5 +1,11 @@
-import { Container, Main, PageLayout, TitleDecoration } from "components";
-import { ViewSidebar, ViewHeader } from "views/components";
+import {
+	Container,
+	DesignH2,
+	Main,
+	PageLayout,
+	TitleDecoration,
+} from "components";
+import { ViewSidebar, ViewHeader } from "views/_shared";
 
 const Settings = () => (
 	<PageLayout>
@@ -8,7 +14,7 @@ const Settings = () => (
 			<ViewSidebar />
 			<Main>
 				<TitleDecoration>
-					<h2>Settings</h2>
+					<DesignH2 data-testid="settings__title">Settings</DesignH2>
 				</TitleDecoration>
 			</Main>
 		</Container>

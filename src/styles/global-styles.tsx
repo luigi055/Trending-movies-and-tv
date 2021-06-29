@@ -12,6 +12,7 @@ const GlobalStyles: GlobalStyleComponent<
 ${({ theme }) =>
 	css`
 		:root {
+			/*Responsive font auto scaling */
 			--base-size: 0.95rem;
 			--type-scale: 1.1;
 			--h3: calc(var(--base-size) * var(--type-scale));
@@ -59,32 +60,8 @@ ${({ theme }) =>
 			position: relative;
 		}
 
-		h1 {
-			font-size: var(--h1);
-		}
-
-		h2 {
-			font-size: var(--h2);
-		}
-
-		h3 {
-			font-size: var(--h3);
-		}
-
-		p,
-		h4 {
+		p {
 			font-size: var(--base-size);
-		}
-
-		small,
-		.text-small,
-		h5 {
-			font-size: var(--text-sm);
-		}
-
-		textarea {
-			resize: none;
-			width: 100%;
 		}
 
 		img {

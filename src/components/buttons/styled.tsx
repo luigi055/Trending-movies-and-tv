@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button<ButtonProps>`
-	cursor: pointer;
-	display: inline-block;
-	font-weight: bold;
-	text-align: center;
-	vertical-align: middle;
-	user-select: none;
-	border: 1px solid transparent;
-	padding: 0.4rem 0.75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	border-radius: 0;
-	transition: all 0.15s ease-in-out;
 	background: ${({ variant, theme }) =>
 		variant === "primary" ? theme.primaryColor : theme.backgroundColor};
+	border-radius: 0;
+	border: 1px solid transparent;
 	color: ${({ variant, theme }) =>
 		variant === "primary" ? theme.onPrimaryColor : theme.onBackgroundColor};
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 1.5;
+	padding: 0.4rem 0.75rem;
+	text-align: center;
+	transition: all 0.15s ease-in-out;
+	user-select: none;
+	vertical-align: middle;
 
 	&:focus {
 		outline: 0;

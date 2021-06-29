@@ -1,4 +1,5 @@
 import { UserCardStyled, TextBox, Avatar } from "./styled";
+import { DesignH4, SmallText } from "../../typography";
 
 export const UserCard: React.FC<UserCardProps> = ({
 	name = "",
@@ -8,8 +9,8 @@ export const UserCard: React.FC<UserCardProps> = ({
 	return (
 		<UserCardStyled>
 			<TextBox>
-				<h4>{name}</h4>
-				<small style={{ fontSize: "0.75rem" }}>{email}</small>
+				<DesignH4>{name}</DesignH4>
+				<SmallText>{email}</SmallText>
 			</TextBox>
 			<Avatar src={avatar} alt={`${name}'s avatar`} />
 		</UserCardStyled>

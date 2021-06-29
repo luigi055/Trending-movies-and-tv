@@ -22,6 +22,22 @@ describe("Testing the Dashboard page", () => {
 		);
 	});
 
+	it("should show the dashboard title", () => {
+		const { getByTestId } = screen;
+
+		const dashboardTitle = getByTestId("dashboard__title");
+
+		expect(dashboardTitle).toHaveTextContent("Secret Dashboard");
+	});
+
+	it("should show the correct header title", () => {
+		const { getByTestId } = screen;
+
+		const dashboardTitle = getByTestId("header__title");
+
+		expect(dashboardTitle).toHaveTextContent("Dashboard");
+	});
+
 	it("should show the logout button with github button", () => {
 		const { getByTestId } = screen;
 		const signOutButton = getByTestId(signOutButtonTestId);

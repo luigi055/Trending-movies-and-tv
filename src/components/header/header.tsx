@@ -1,4 +1,3 @@
-import { UserCard } from "components";
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`
@@ -8,13 +7,8 @@ const HeaderStyled = styled.header`
 	padding: 10px 15px;
 `;
 
-const Header: React.FC<HeaderProps> = ({ title, user = {} }) => {
-	return (
-		<HeaderStyled>
-			<h1>{title}</h1>
-			<UserCard name={user?.name} email={user?.email} avatar={user?.avatar} />
-		</HeaderStyled>
-	);
+const Header: React.FC = ({ children }) => {
+	return <HeaderStyled>{children}</HeaderStyled>;
 };
 
 export default Header;

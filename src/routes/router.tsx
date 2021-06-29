@@ -13,7 +13,7 @@ const ClientRouter: FunctionComponent = () => (
 		</Route>
 		<PrivateRoute exact path={DASHBOARD} component={Dashboard} />
 		<PrivateRoute exact path={SETTINGS} component={Settings} />
-		<PublicRoute exact path={LOGIN} component={Login} exact />
+		<PublicRoute exact path={LOGIN} component={Login} />
 	</Switch>
 );
 

@@ -1,5 +1,11 @@
-import { Container, Main, PageLayout, TitleDecoration } from "components";
-import { ViewSidebar, ViewHeader } from "views/components";
+import {
+	Container,
+	DesignH2,
+	Main,
+	PageLayout,
+	TitleDecoration,
+} from "components";
+import { ViewSidebar, ViewHeader } from "views/_shared";
 
 const Dashboard = () => (
 	<PageLayout>
@@ -8,7 +14,7 @@ const Dashboard = () => (
 			<ViewSidebar />
 			<Main>
 				<TitleDecoration>
-					<h2 data-testid="dashboard__title">Secret Dashboard</h2>
+					<DesignH2 data-testid="dashboard__title">Secret Dashboard</DesignH2>
 				</TitleDecoration>
 			</Main>
 		</Container>
