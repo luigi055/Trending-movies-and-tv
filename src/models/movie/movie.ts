@@ -1,15 +1,15 @@
 export default class Movie {
-	private _rating: string;
 	private _id: string;
-	private _posterPath: string;
+	private _rating: number;
+	private _posterImage: string;
 	private _title: string;
 	private _releaseAt: string;
 
-	constructor({ rating, id, posterPath, title, releaseAt }: IMovie) {
+	constructor({ rating, id, posterImage, title, releaseAt }: IMovie) {
 		this._id = id;
 		this._title = title;
 		this._rating = rating;
-		this._posterPath = posterPath;
+		this._posterImage = posterImage;
 		this._releaseAt = releaseAt;
 	}
 
@@ -22,8 +22,8 @@ export default class Movie {
 	get rating() {
 		return this._rating;
 	}
-	get posterPath() {
-		return this._posterPath;
+	get posterImage() {
+		return this._posterImage;
 	}
 	get releaseAt() {
 		return this._releaseAt;

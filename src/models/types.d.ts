@@ -6,9 +6,9 @@ interface IUser {
 }
 
 interface IMovie {
-	rating: string;
 	id: string;
-	posterPath: string;
+	rating: number;
+	posterImage: string;
 	title: string;
 	releaseAt: string;
 }

@@ -7,7 +7,10 @@ import {
 	Card,
 } from "components";
 import { useEffect, useState } from "react";
+import { fetchTrendingMoviesByPage } from "services/movies";
 import { ViewSidebar, ViewHeader, ScrollBox } from "views/_shared";
+
+import Movie from "models/movie";
 
 const formatDate = (date: string | number | Date) =>
 	new Date(date).toLocaleDateString("en", {
@@ -17,24 +20,29 @@ const formatDate = (date: string | number | Date) =>
 	});
 
 const Dashboard = () => {
-	const [movies, setMovies] = useState<any[]>([]);
+	const [movies, setMovies] = useState<IMovie[]>([]);
 	useEffect(() => {
 		(async () => {
-			const { results } = await (
-				await fetch(
-					`${process.env.REACT_APP_TMDB_API_URI}/trending/movie/day?page=2`,
-					{
-						headers: {
-							"Content-Type": "application/json;charset=utf-8",
-							Authorization: `Bearer ${process.env.REACT_APP_TMDB_AUTHORIZATION_TOKEN}`,
-						},
-					}
-				)
-			).json();
+			try {
+				const rawMovies = await fetchTrendingMoviesByPage(1);
 
-			setMovies(results);
+				const movies = rawMovies?.map(
+					(rawMovie) =>
+						new Movie({
+							id: rawMovie.id,
+							rating: rawMovie.vote_average,
+							posterImage: `${process.env.REACT_APP_TMDB_IMAGE_STORAGE_URI}/${rawMovie.poster_path}`,
+							title: rawMovie.title,
+							releaseAt: rawMovie.release_date,
+						})
+				);
+
+				setMovies(movies!);
+			} catch (error) {
+				alert("Error trying to retrieving movies");
+			}
 		})();
-	});
+	}, []);
 	return (
 		<PageLayout>
 			<ViewHeader title="Dashboard" />
@@ -45,17 +53,17 @@ const Dashboard = () => {
 						<DesignH2 data-testid="dashboard__title">Secret Dashboard</DesignH2>
 					</TitleDecoration>
 					<ScrollBox>
-						{movies.map((movie: any) => (
+						{movies.map((movie) => (
 							<Card key={movie.id}>
 								<img
-									src={`${process.env.REACT_APP_TMDB_IMAGE_STORAGE_URI}${movie.poster_path}`}
+									src={`${movie.posterImage}`}
 									alt={`poster ${movie.title}`}
 								/>
 								<h3>{movie.title}</h3>
-								<time dateTime={movie.release_date}>
-									release date: {formatDate(movie.release_date)}
+								<time dateTime={movie.releaseAt}>
+									release date: {formatDate(movie.releaseAt)}
 								</time>
-								<h3>Vote average: {movie.vote_average}</h3>
+								<h3>Vote average: {movie.rating}</h3>
 							</Card>
 						))}
 					</ScrollBox>
