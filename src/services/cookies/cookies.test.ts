@@ -11,4 +11,11 @@ describe("Testing cookies services", () => {
 
 		expect(getCookie(cookieName)).toBe(tokenStub);
 	});
+
+	it("should trim the cookie when taken", () => {
+		const cookieName = "session_token";
+		setCookie(" " + cookieName, tokenStub, 2);
+
+		expect(getCookie(cookieName)).toBe(tokenStub);
+	});
 });
