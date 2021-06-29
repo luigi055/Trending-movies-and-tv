@@ -9,7 +9,7 @@ const Dashboard = () => {
 				<ViewSidebar />
 				<Main>
 					<TitleDecoration>
-						<h2>Main Content</h2>
+						<h2 data-testid="dashboard__title">Secret Dashboard</h2>
 					</TitleDecoration>
 				</Main>
 			</Container>

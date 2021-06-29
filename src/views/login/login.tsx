@@ -1,7 +1,7 @@
-import { CenteredMainElement, PageLayout, Card, Button } from "components";
 import { useDispatch } from "react-redux";
-import { login } from "services/redux/features/authentication/actions";
 import styled from "styled-components";
+import { CenteredMainElement, PageLayout, Button } from "components";
+import { login } from "services/redux/features/authentication/actions";
 
 const LoginStyled = styled(CenteredMainElement)`
 	background: ${({ theme }) => theme.primaryVariantColor};
@@ -17,7 +17,11 @@ function Login() {
 	return (
 		<PageLayout>
 			<LoginStyled>
-				<Button variant="primary" onClick={handleLoginClick}>
+				<Button
+					data-testid="github-login__btn"
+					variant="primary"
+					onClick={handleLoginClick}
+				>
 					Login with github
 				</Button>
 			</LoginStyled>

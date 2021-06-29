@@ -54,7 +54,9 @@ const ViewSidebar = () => {
 					Settings
 				</NavLink>
 			</Navigation>
-			<Button onClick={handleLogoutClick}>Logout</Button>
+			<Button data-testid="signout__btn" onClick={handleLogoutClick}>
+				Logout
+			</Button>
 		</Aside>
 	);
 };
