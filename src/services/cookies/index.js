@@ -12,14 +12,15 @@ export function setCookie(
 export function getCookie(cookieName: string) {
 	let name = `${cookieName}=`;
 	let decodedCookie = decodeURIComponent(document.cookie);
-	let ca = decodedCookie.split(";");
-	for (let i = 0; i < ca.length; i++) {
-		let c = ca[i];
-		while (c.charAt(0) === " ") {
-			c = c.substring(1);
+	let cookies = decodedCookie.split(";");
+	for (let i = 0; i < cookies.length; i++) {
+		let cookie = cookies[i];
+		while (cookie.charAt(0) === " ") {
+			console.warn(cookie);
+			cookie = cookie.substring(1);
 		}
-		if (c.indexOf(name) === 0) {
-			return c.substring(name.length, c.length);
+		if (cookie.indexOf(name) === 0) {
+			return cookie.substring(name.length, cookie.length);
 		}
 	}
 	return "";
