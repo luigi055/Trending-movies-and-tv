@@ -10,7 +10,7 @@ type ViewCardProps = {
 };
 
 const ViewCard: React.FC<ViewCardProps> = React.memo(
-	({ title = "", image = "", rating = "", releaseAt = "", ...rest }) => (
+	({ title, image, rating, releaseAt, ...rest }) => (
 		<Card data-testid="movie-card" {...rest}>
 			<Card.Image
 				data-testid="movie-card__img"
