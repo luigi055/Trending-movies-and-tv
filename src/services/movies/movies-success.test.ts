@@ -5,12 +5,20 @@ process.env.REACT_APP_TMDB_API_URI = "https://api.themoviedb.org/3";
 const rawTMDB = {
 	id: "k2m3",
 	poster_path: "/image.jpg",
-	release_date: "2020-13-01",
+
 	vote_average: 7.5,
 };
 
-const rawMovie = { ...rawTMDB, title: "fake title" };
-const rawSerie = { ...rawTMDB, name: "fake name" };
+const rawMovie = {
+	...rawTMDB,
+	title: "fake title",
+	release_date: "2020-13-01",
+};
+const rawSerie = {
+	...rawTMDB,
+	name: "fake name",
+	first_air_date: "2020-13-01",
+};
 
 fetchMock.mock("https://api.themoviedb.org/3/trending/movie/day?page=1", 200, {
 	response: { results: [rawMovie] },

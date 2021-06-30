@@ -6,7 +6,7 @@ const adaptRawTMDBToSerie = (rawMovie: RawTMDBSerie): IMovie =>
 		rating: rawMovie.vote_average,
 		posterImage: `${process.env.REACT_APP_TMDB_IMAGE_STORAGE_URI}/${rawMovie.poster_path}`,
 		title: rawMovie.name,
-		releaseAt: rawMovie.release_date,
+		releaseAt: rawMovie.first_air_date,
 	});
 
 export default adaptRawTMDBToSerie;

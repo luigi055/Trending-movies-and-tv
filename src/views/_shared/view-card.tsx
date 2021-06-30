@@ -24,7 +24,7 @@ const ViewCard: React.FC<ViewCardProps> = React.memo(
 				data-testid="movie-card__time"
 				dateTime={releaseAt}
 			>
-				release date: {formatDate(releaseAt)}
+				release: {formatDate(releaseAt)}
 			</Card.SubTitle>
 			<Card.Description data-testid="movie-card__rating" as="p">
 				Vote average: {rating}
