@@ -5,7 +5,6 @@ import { PrivateRoute, PublicRoute } from "./components";
 import Dashboard from "views/dashboard";
 import Settings from "views/settings";
 import Login from "views/login";
-import ViewHeader from "views/_shared/view-header";
 
 const ClientRouter: FunctionComponent = () => (
 	<Switch>
