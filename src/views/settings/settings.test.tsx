@@ -40,7 +40,7 @@ describe("Testing the Settings page", () => {
 	it("should show the settings title", () => {
 		const { getByTestId } = screen;
 
-		const dashboardTitle = getByTestId("settings__title");
+		const dashboardTitle = getByTestId("template__title");
 
 		expect(dashboardTitle).toHaveTextContent("Settings");
 	});

@@ -40,7 +40,7 @@ describe("Testing the Dashboard page", () => {
 	it("should show the dashboard title", () => {
 		const { getByTestId } = screen;
 
-		const dashboardTitle = getByTestId("dashboard__title");
+		const dashboardTitle = getByTestId("template__title");
 
 		expect(dashboardTitle).toHaveTextContent("Secret Dashboard");
 	});
