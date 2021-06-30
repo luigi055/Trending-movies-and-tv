@@ -8,6 +8,8 @@ const defaultTheme: Theme = {
 	fontFamily: "Poppins",
 	fontSize: "16px",
 	mediumBreakPoint: 48,
+	largeBreakPoint: 60,
+	extraLargeBreakPoint: 75,
 	gutter: "15px",
 	breakPointUnit: "rem",
 };

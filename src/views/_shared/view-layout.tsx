@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import {
+	declareCssForMediumView,
+	declareCssForLargeView,
+	declareCssForExtraLargeView,
+} from "styles/responsive";
 
 export const ScrollBox = styled.div`
 	padding: ${({ theme }) => theme.gutter};
@@ -9,7 +14,17 @@ export const ScrollBox = styled.div`
 	overflow-y: overlay;
 	font-family: sans-serif;
 	padding: 10px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr;
+	${declareCssForMediumView(css`
+		grid-template-columns: 1fr 1fr;
+	`)}
+
+	${declareCssForLargeView(css`
+		grid-template-columns: 1fr 1fr 1fr;
+	`)}
+
+	${declareCssForExtraLargeView(css`
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	`)}
 `;
