@@ -63,6 +63,7 @@
 		"@types/redux-saga-tester": "^1.0.2",
 		"@types/styled-components": "^5.1.10",
 		"faker": "^5.5.3",
+		"fetch-mock": "^9.11.0",
 		"redux-devtools-extension": "^2.13.9",
 		"redux-saga-tester": "^1.0.874"
 	}

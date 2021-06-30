@@ -22,7 +22,6 @@ async function fetchTrendingMoviesByPage(
 				}
 			)
 		).json();
-
 		return results;
 	} catch (error) {
 		alert(`Error trying to fetching trending ${type}`);
