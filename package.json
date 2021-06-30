@@ -46,7 +46,8 @@
 		"collectCoverageFrom": [
 			"!src/reportWebVitals.ts",
 			"!src/index.tsx",
-			"!src/services/redux/debug/*"
+			"!src/services/redux/debug/*",
+			"!src/services/firebase/config.ts"
 		]
 	},
 	"devDependencies": {
