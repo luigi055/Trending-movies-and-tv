@@ -24,4 +24,5 @@ export const Main = styled.main`
 	border-radius: 10px 0 0 0;
 	box-shadow: 0px 2px 16px 0 rgba(0, 0, 0, 0.16);
 	flex-grow: 100;
+	overflow: hidden;
 `;
