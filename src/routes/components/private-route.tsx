@@ -6,19 +6,19 @@ import { LOGIN } from "../routes-config";
 import { CustomRouteProps } from "./types";
 
 export const PrivateRoute: React.FC<CustomRouteProps> = ({
-	component: Component,
-	...rest
+  component: Component,
+  ...rest
 }) => {
-	const isLoggedIn = useSelector(selectSessionToken);
+  const isLoggedIn = useSelector(selectSessionToken);
 
-	return (
-		<Route
-			{...rest}
-			render={(props) => {
-				if (!!isLoggedIn) return <Component {...props} />;
-				if (isLoggedIn === undefined) return null;
-				return <Redirect to={LOGIN} />;
-			}}
-		/>
-	);
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        if (!!isLoggedIn) return <Component {...props} />;
+        if (isLoggedIn === undefined) return null;
+        return <Redirect to={LOGIN} />;
+      }}
+    />
+  );
 };

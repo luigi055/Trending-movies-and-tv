@@ -3,5 +3,5 @@ import { authenticationSagas } from "./features/authentication/sagas";
 import { moviesSagas } from "./features/movies/sagas";
 
 export default function* rootSagas() {
-	yield all([...authenticationSagas, ...moviesSagas]);
+  yield all([...authenticationSagas, ...moviesSagas]);
 }

@@ -5,28 +5,28 @@ import { getMovies } from "services/redux/features/movies/actions";
 import { selectMovies } from "services/redux/features/movies/selectors";
 
 const Dashboard = () => {
-	const dispatch = useDispatch();
-	const movies = useSelector(selectMovies);
+  const dispatch = useDispatch();
+  const movies = useSelector(selectMovies);
 
-	useEffect(() => {
-		dispatch(getMovies());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(getMovies());
+  }, [dispatch]);
 
-	return (
-		<PageTemplate headerTitle="Dashboard" pageTitle="Secret Dashboard">
-			<ScrollBox>
-				{movies.map((movie) => (
-					<ViewCard
-						key={movie.id}
-						image={movie.posterImage}
-						title={movie.title}
-						releaseAt={movie.releaseAt}
-						rating={movie.rating}
-					/>
-				))}
-			</ScrollBox>
-		</PageTemplate>
-	);
+  return (
+    <PageTemplate headerTitle="Dashboard" pageTitle="Secret Dashboard">
+      <ScrollBox>
+        {movies.map((movie) => (
+          <ViewCard
+            key={movie.id}
+            image={movie.posterImage}
+            title={movie.title}
+            releaseAt={movie.releaseAt}
+            rating={movie.rating}
+          />
+        ))}
+      </ScrollBox>
+    </PageTemplate>
+  );
 };
 
 export default Dashboard;

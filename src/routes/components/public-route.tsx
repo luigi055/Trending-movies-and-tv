@@ -5,21 +5,21 @@ import { DASHBOARD } from "../routes-config";
 import { CustomRouteProps } from "./types";
 
 export const PublicRoute: React.FC<CustomRouteProps> = ({
-	component: Component,
-	...rest
+  component: Component,
+  ...rest
 }) => {
-	const isLoggedIn = !!useSelector(selectSessionToken);
+  const isLoggedIn = !!useSelector(selectSessionToken);
 
-	return (
-		<Route
-			{...rest}
-			render={(props) => {
-				return isLoggedIn ? (
-					<Redirect to={DASHBOARD} />
-				) : (
-					<Component {...props} />
-				);
-			}}
-		/>
-	);
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        return isLoggedIn ? (
+          <Redirect to={DASHBOARD} />
+        ) : (
+          <Component {...props} />
+        );
+      }}
+    />
+  );
 };

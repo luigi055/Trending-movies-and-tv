@@ -5,52 +5,52 @@ import initialState from "./initial-state";
 import { reduceMovies } from "./reducer";
 import { moviesSagas } from "./sagas";
 import {
-	getMovies,
-	getSeries,
-	getMoviesFailed,
-	getSeriesFailed,
-	MOVIES_GET_MOVIES_FAILED,
-	MOVIES_GET_SERIES_FAILED,
+  getMovies,
+  getSeries,
+  getMoviesFailed,
+  getSeriesFailed,
+  MOVIES_GET_MOVIES_FAILED,
+  MOVIES_GET_SERIES_FAILED,
 } from "./actions";
 import { selectMovies, selectSeries } from "./selectors";
 import { adaptRawMovieToMovie, adaptRawMovieToSerie } from "models/movie";
 
 jest.mock("services/movies", () => ({
-	fetchTrendingMoviesByPage: () => new Promise((_resolve, reject) => reject()),
+  fetchTrendingMoviesByPage: () => new Promise((_resolve, reject) => reject()),
 }));
 beforeEach(() => {
-	window.alert = jest.fn();
-	window.fetch = () => new Promise((_resolve, reject) => reject());
+  window.alert = jest.fn();
+  window.fetch = () => new Promise((_resolve, reject) => reject());
 });
 
 function* sagas() {
-	yield all([...moviesSagas]);
+  yield all([...moviesSagas]);
 }
 
 describe("Testing the Movies feature", () => {
-	let store: SagaTester<State["movies"]> = new SagaTester({});
+  let store: SagaTester<State["movies"]> = new SagaTester({});
 
-	beforeEach(() => {
-		store = new SagaTester({
-			initialState,
-			reducers: reduceMovies as any,
-		});
-		store.start(sagas);
-	});
+  beforeEach(() => {
+    store = new SagaTester({
+      initialState,
+      reducers: reduceMovies as any,
+    });
+    store.start(sagas);
+  });
 
-	it("should call getMoviesFailed when the service has an error", async () => {
-		store.dispatch(getMovies());
+  it("should call getMoviesFailed when the service has an error", async () => {
+    store.dispatch(getMovies());
 
-		const calledGetMoviesFailed = await store.waitFor(MOVIES_GET_MOVIES_FAILED);
+    const calledGetMoviesFailed = await store.waitFor(MOVIES_GET_MOVIES_FAILED);
 
-		expect(calledGetMoviesFailed).toEqual(getMoviesFailed());
-	});
+    expect(calledGetMoviesFailed).toEqual(getMoviesFailed());
+  });
 
-	it("should call getSeriesFailed when the service has an error", async () => {
-		store.dispatch(getSeries());
+  it("should call getSeriesFailed when the service has an error", async () => {
+    store.dispatch(getSeries());
 
-		const calledGetSeriesFailed = await store.waitFor(MOVIES_GET_SERIES_FAILED);
+    const calledGetSeriesFailed = await store.waitFor(MOVIES_GET_SERIES_FAILED);
 
-		expect(calledGetSeriesFailed).toEqual(getSeriesFailed());
-	});
+    expect(calledGetSeriesFailed).toEqual(getSeriesFailed());
+  });
 });

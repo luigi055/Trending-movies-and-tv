@@ -7,21 +7,21 @@ import { refreshSession } from "services/redux/features/authentication/actions";
 import { GlobalStyles, defaultTheme } from "styles";
 
 function App() {
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(refreshSession());
-	}, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshSession());
+  }, [dispatch]);
 
-	return (
-		<ThemeProvider theme={defaultTheme}>
-			<GlobalStyles />
-			<Router>
-				<div className="App">
-					<ApplicationRouter />
-				</div>
-			</Router>
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyles />
+      <Router>
+        <div className="App">
+          <ApplicationRouter />
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
 }
 
 export default App;

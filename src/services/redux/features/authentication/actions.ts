@@ -9,32 +9,32 @@ export const AUTH_LOGOUT_SUCCESS = `${context}/LOGOUT_SUCCESS`;
 export const AUTH_LOGOUT_FAILED = `${context}/LOGOUT_FAILED`;
 
 export const login = (): ActionStandardBase => ({
-	type: AUTH_LOGIN,
+  type: AUTH_LOGIN,
 });
 
 export const refreshSession = (): ActionStandardBase => ({
-	type: AUTH_REFRESH_SESSION,
+  type: AUTH_REFRESH_SESSION,
 });
 
 export const loginSuccess = (
-	payload: State["authentication"]
+  payload: State["authentication"]
 ): ActionPayloadRequired<State["authentication"]> => ({
-	type: AUTH_LOGIN_SUCCESS,
-	payload,
+  type: AUTH_LOGIN_SUCCESS,
+  payload,
 });
 
 export const loginFailed = (): ActionStandardBase => ({
-	type: AUTH_LOGIN_FAILED,
+  type: AUTH_LOGIN_FAILED,
 });
 
 export const logout = (): ActionStandardBase => ({
-	type: AUTH_LOGOUT,
+  type: AUTH_LOGOUT,
 });
 
 export const logoutFailed = (): ActionStandardBase => ({
-	type: AUTH_LOGOUT_FAILED,
+  type: AUTH_LOGOUT_FAILED,
 });
 
 export const logoutSuccess = (): ActionStandardBase => ({
-	type: AUTH_LOGOUT_SUCCESS,
+  type: AUTH_LOGOUT_SUCCESS,
 });

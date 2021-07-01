@@ -8,14 +8,14 @@ import composeEnhancer from "./debug/compose-enhancer";
 const sagaMiddleware = createSagaMiddleware();
 
 const setStore = (initialState: State = storeInitialState) => {
-	const store = createStore(
-		rootReducers,
-		initialState,
-		composeEnhancer(applyMiddleware(sagaMiddleware))
-	);
-	sagaMiddleware.run(rootSagas);
+  const store = createStore(
+    rootReducers,
+    initialState,
+    composeEnhancer(applyMiddleware(sagaMiddleware))
+  );
+  sagaMiddleware.run(rootSagas);
 
-	return store;
+  return store;
 };
 
 export default setStore;

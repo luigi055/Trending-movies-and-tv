@@ -1,6 +1,6 @@
 const moviesInitialState = {
-	movies: [],
-	series: [],
+  movies: [],
+  series: [],
 };
 
 export default moviesInitialState;

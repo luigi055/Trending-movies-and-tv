@@ -3,40 +3,40 @@ import { fetchTrendingMoviesByPage } from "./movies";
 process.env.REACT_APP_TMDB_API_URI = "https://api.themoviedb.org/3";
 
 const rawTMDB = {
-	id: "k2m3",
-	poster_path: "/image.jpg",
+  id: "k2m3",
+  poster_path: "/image.jpg",
 
-	vote_average: 7.5,
+  vote_average: 7.5,
 };
 
 const rawMovie = {
-	...rawTMDB,
-	title: "fake title",
-	release_date: "2020-13-01",
+  ...rawTMDB,
+  title: "fake title",
+  release_date: "2020-13-01",
 };
 const rawSerie = {
-	...rawTMDB,
-	name: "fake name",
-	first_air_date: "2020-13-01",
+  ...rawTMDB,
+  name: "fake name",
+  first_air_date: "2020-13-01",
 };
 
 fetchMock.mock("https://api.themoviedb.org/3/trending/movie/day?page=1", 200, {
-	response: { results: [rawMovie] },
+  response: { results: [rawMovie] },
 });
 fetchMock.mock("https://api.themoviedb.org/3/trending/tv/day?page=1", 200, {
-	response: { results: [rawSerie] },
+  response: { results: [rawSerie] },
 });
 
 describe("Testing the movies service", () => {
-	it("should fetch movies data from the TMDB service and return it", async () => {
-		const movies = await fetchTrendingMoviesByPage(1, "movie");
+  it("should fetch movies data from the TMDB service and return it", async () => {
+    const movies = await fetchTrendingMoviesByPage(1, "movie");
 
-		expect(movies![0]).toEqual(rawMovie);
-	});
+    expect(movies![0]).toEqual(rawMovie);
+  });
 
-	it("should fetch series data from the TMDB service and return it", async () => {
-		const series = await fetchTrendingMoviesByPage(1, "tv");
+  it("should fetch series data from the TMDB service and return it", async () => {
+    const series = await fetchTrendingMoviesByPage(1, "tv");
 
-		expect(series![0]).toEqual(rawSerie);
-	});
+    expect(series![0]).toEqual(rawSerie);
+  });
 });

@@ -8,16 +8,16 @@ import { Provider } from "react-redux";
 import { Store } from "redux";
 
 export const ComponentWithTheme: FunctionComponent = ({ children }) => (
-	<ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
+  <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>
 );
 
 export const ConnectedComponent: FunctionComponent<{
-	store?: Store;
-	history?: any;
+  store?: Store;
+  history?: any;
 }> = ({ store = setStore(), history = createMemoryHistory(), children }) => (
-	<Provider store={store}>
-		<ComponentWithTheme>
-			<Router history={history}>{children}</Router>;
-		</ComponentWithTheme>
-	</Provider>
+  <Provider store={store}>
+    <ComponentWithTheme>
+      <Router history={history}>{children}</Router>;
+    </ComponentWithTheme>
+  </Provider>
 );

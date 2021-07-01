@@ -8,31 +8,31 @@ export const MOVIES_GET_SERIES_SUCCESS = `${context}/GET_SERIES_SUCCESS`;
 export const MOVIES_GET_SERIES_FAILED = `${context}/GET_SERIES_FAILED`;
 
 export const getMovies = (): ActionStandardBase => ({
-	type: MOVIES_GET_MOVIES,
+  type: MOVIES_GET_MOVIES,
 });
 
 export const getSeries = (): ActionStandardBase => ({
-	type: MOVIES_GET_SERIES,
+  type: MOVIES_GET_SERIES,
 });
 
 export const getMoviesSuccess = (
-	payload: State["movies"]["movies"]
+  payload: State["movies"]["movies"]
 ): ActionPayloadRequired<State["movies"]["movies"]> => ({
-	type: MOVIES_GET_MOVIES_SUCCESS,
-	payload,
+  type: MOVIES_GET_MOVIES_SUCCESS,
+  payload,
 });
 
 export const getMoviesFailed = (): ActionStandardBase => ({
-	type: MOVIES_GET_MOVIES_FAILED,
+  type: MOVIES_GET_MOVIES_FAILED,
 });
 
 export const getSeriesSuccess = (
-	payload: State["movies"]["series"]
+  payload: State["movies"]["series"]
 ): ActionPayloadRequired<State["movies"]["series"]> => ({
-	type: MOVIES_GET_SERIES_SUCCESS,
-	payload,
+  type: MOVIES_GET_SERIES_SUCCESS,
+  payload,
 });
 
 export const getSeriesFailed = (): ActionStandardBase => ({
-	type: MOVIES_GET_SERIES_FAILED,
+  type: MOVIES_GET_SERIES_FAILED,
 });

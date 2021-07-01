@@ -7,14 +7,14 @@ import Settings from "views/settings";
 import Login from "views/login";
 
 const ClientRouter: FunctionComponent = () => (
-	<Switch>
-		<PublicRoute exact path={LOGIN} component={Login} />
-		<PrivateRoute exact path={DASHBOARD} component={Dashboard} />
-		<PrivateRoute exact path={SETTINGS} component={Settings} />
-		<Route path="*">
-			<Redirect to={LOGIN} />
-		</Route>
-	</Switch>
+  <Switch>
+    <PublicRoute exact path={LOGIN} component={Login} />
+    <PrivateRoute exact path={DASHBOARD} component={Dashboard} />
+    <PrivateRoute exact path={SETTINGS} component={Settings} />
+    <Route path="*">
+      <Redirect to={LOGIN} />
+    </Route>
+  </Switch>
 );
 
 export default ClientRouter;
