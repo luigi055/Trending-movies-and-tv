@@ -5,6 +5,7 @@ export const PageLayout = styled.div`
 	flex-direction: column;
 	height: 100%;
 	justify-content: start;
+	overflow: hidden;
 `;
 
 export const Container = styled.div`
