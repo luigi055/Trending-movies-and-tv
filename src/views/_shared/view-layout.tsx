@@ -16,6 +16,21 @@ export const ScrollBox = styled.div`
 	padding: 10px;
 	display: grid;
 	grid-template-columns: 1fr;
+
+	::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px ${({ theme }) => theme.onPrimaryColor};
+		background-color: transparent;
+	}
+
+	::-webkit-scrollbar {
+		width: 3px;
+		background-color: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: ${({ theme }) => theme.primaryVariantColor};
+	}
+
 	${declareCssForMediumView(css`
 		grid-template-columns: 1fr 1fr;
 	`)}

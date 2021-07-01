@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const PageLayout = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 	justify-content: start;
-	overflow: hidden;
 `;
 
 export const Container = styled.div`

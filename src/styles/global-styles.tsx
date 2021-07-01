@@ -68,18 +68,8 @@ ${({ theme }) =>
 			display: block;
 		}
 
-		::-webkit-scrollbar-track {
-			-webkit-box-shadow: inset 0 0 6px ${({ theme }) => theme.onPrimaryColor};
-			background-color: transparent;
-		}
-
-		::-webkit-scrollbar {
-			width: 3px;
-			background-color: transparent;
-		}
-
-		::-webkit-scrollbar-thumb {
-			background-color: ${({ theme }) => theme.primaryVariantColor};
+		html::-webkit-scrollbar {
+			width: 0;
 		}
 	`}`;
 
