@@ -19,6 +19,7 @@ export const ScrollBox = styled.div`
 
 	::-webkit-scrollbar-track {
 		-webkit-box-shadow: inset 0 0 6px ${({ theme }) => theme.onPrimaryColor};
+		box-shadow: inset 0 0 6px ${({ theme }) => theme.onPrimaryColor};
 		background-color: transparent;
 	}
 
