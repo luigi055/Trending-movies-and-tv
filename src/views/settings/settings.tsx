@@ -10,8 +10,7 @@ const Settings = () => {
 
 	useEffect(() => {
 		dispatch(getSeries());
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<PageTemplate headerTitle="Settings" pageTitle="Settings">

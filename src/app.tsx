@@ -10,8 +10,7 @@ function App() {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(refreshSession());
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<ThemeProvider theme={defaultTheme}>

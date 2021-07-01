@@ -10,8 +10,7 @@ const Dashboard = () => {
 
 	useEffect(() => {
 		dispatch(getMovies());
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<PageTemplate headerTitle="Dashboard" pageTitle="Secret Dashboard">
