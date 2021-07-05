@@ -1,11 +1,11 @@
-<h1 align="center">Trending Movies % Tv</h1>
+<h1 align="center">Trending Movies & Tv</h1>
 
 Minimalist application where you can access to private content once logged in, full responsive.
 
 ## Previews Mobile
 
 <p align="center">
-<img src="https://i.imgur.com/7r1ZEyt.png"
+<img src="https://i.imgur.com/Yqtuk3w.png"
   alt="trending-movies-tv-application-mobile"
   >
 </p>
