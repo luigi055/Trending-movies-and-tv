@@ -1,13 +1,7 @@
 interface State {
   isLoading: boolean;
-  authentication: {
-    user: IUser | null;
-    session_token?: string | null;
-  };
-  movies: {
-    movies: IMovie[];
-    series: IMovie[];
-  };
+  authentication: AuthenticationState;
+  movies: MoviesState;
 }
 
 interface ActionStandardBase {

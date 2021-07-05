@@ -6,18 +6,18 @@ import {
 
 const authenticationStateHandlers: Record<string, Function> = {
   [MOVIES_GET_MOVIES_SUCCESS]: (
-    state: State["movies"],
-    action: ActionPayloadRequired<State["movies"]["movies"]>
+    state: MoviesState,
+    action: ActionPayloadRequired<MoviesState["movies"]>
   ) => ({ ...state, movies: action.payload }),
   [MOVIES_GET_SERIES_SUCCESS]: (
-    state: State["movies"],
-    action: ActionPayloadRequired<State["movies"]["series"]>
+    state: MoviesState,
+    action: ActionPayloadRequired<MoviesState["series"]>
   ) => ({ ...state, series: action.payload }),
 };
 
 export const reduceMovies = (
-  state: State["movies"] = initialState,
-  action: ActionStandard<IUser>
+  state: MoviesState = initialState,
+  action: ActionStandard<IMovie>
 ) => {
   const handler = authenticationStateHandlers[action.type];
   const hasHandler = !!handler;

@@ -3,14 +3,14 @@ import { AUTH_LOGIN_SUCCESS, AUTH_LOGOUT } from "./actions";
 
 const authenticationStateHandlers: Record<string, Function> = {
   [AUTH_LOGIN_SUCCESS]: (
-    _state: State["authentication"],
-    action: ActionPayloadRequired<State["authentication"]>
+    _state: AuthenticationState,
+    action: ActionPayloadRequired<AuthenticationState>
   ) => action.payload,
   [AUTH_LOGOUT]: () => initialState,
 };
 
 export const reduceAuthentication = (
-  state: State["authentication"] = initialState,
+  state: AuthenticationState = initialState,
   action: ActionStandard<IUser>
 ) => {
   const handler = authenticationStateHandlers[action.type];
