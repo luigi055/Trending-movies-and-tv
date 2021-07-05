@@ -1,18 +1,16 @@
-<h1 align="center">SPA - JWT Authentication Flow</h1>
+<h1 align="center">Trending Movies % Tv</h1>
 
 Minimalist application where you can access to private content once logged in, full responsive.
-
-This is an assessment for [Playtomic](https://playtomic.io/); A platform where you can book for spaces to play padel, tennis, soccer and more!
 
 ## Previews Mobile
 
 <p align="center">
 <img src="https://i.imgur.com/7r1ZEyt.png"
-  alt="authentication-application-mobile"
+  alt="trending-movies-tv-application-mobile"
   >
 </p>
 
-<h2 align="center">You can test it out here -> <a  href="http://authentication-playtomic.surge.sh/">Live Demo</a></h2>
+<h2 align="center">You can test it out here -> <a  href="https://trending-movies-tv.surge.sh/">Live Demo</a></h2>
 
 ## Technical decisions:
 
@@ -78,7 +76,7 @@ REACT_APP_TMDB_IMAGE_STORAGE_URI=https://www.themoviedb.org/t/p/w440_and_h660_fa
 1.  Clone the repo:
 
     ```sh
-    $ git clone https://gitlab.com/pedroLaRosa/cornerjob-media-player.git
+    $ git clone https://github.com/luigi055/authentication-jwt-flow.git
     ```
 
 2.  Install package.json dependencies:
