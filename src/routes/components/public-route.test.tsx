@@ -6,7 +6,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { PublicRoute } from "./public-route";
 import storeInitialState from "services/redux/initial-state";
-import { DASHBOARD } from "routes/routes-config";
+import { MOVIES } from "routes/routes-config";
 
 const DummyComponent = () => <div>Dummy!</div>;
 describe("Testing the PublicRoute Component", () => {
@@ -46,7 +46,7 @@ describe("Testing the PublicRoute Component", () => {
     );
     const { queryByText } = screen;
 
-    expect(history.location.pathname).toBe(DASHBOARD);
+    expect(history.location.pathname).toBe(MOVIES);
 
     const dummyText = queryByText("Dummy!");
     expect(dummyText).not.toBeInTheDocument();

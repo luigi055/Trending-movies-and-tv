@@ -4,7 +4,7 @@ import { getSeries } from "services/redux/features/movies/actions";
 import { logout } from "services/redux/features/authentication/actions";
 import { ConnectedComponent } from "utilities/test-utils/wrappers";
 import { generateMovies } from "utilities/test-utils/stubs";
-import { DASHBOARD, SETTINGS } from "routes/routes-config";
+import { MOVIES, SETTINGS } from "routes/routes-config";
 import { setStore } from "services/redux";
 import Movie from "models/movie";
 import formatDate from "utilities/format-date";
@@ -56,10 +56,10 @@ describe("Testing the Settings page", () => {
   it("should links point to the correct URI", () => {
     const { getByTestId } = screen;
 
-    const sidebarLinkToDashboard = getByTestId("sidebar__nav-link__dashboard");
-    const sidebarLinkToSettings = getByTestId("sidebar__nav-link__settings");
+    const sidebarLinkToDashboard = getByTestId("sidebar__nav-link__movies");
+    const sidebarLinkToSettings = getByTestId("sidebar__nav-link__tv");
 
-    expect(sidebarLinkToDashboard).toHaveAttribute("href", DASHBOARD);
+    expect(sidebarLinkToDashboard).toHaveAttribute("href", MOVIES);
     expect(sidebarLinkToSettings).toHaveAttribute("href", SETTINGS);
   });
 

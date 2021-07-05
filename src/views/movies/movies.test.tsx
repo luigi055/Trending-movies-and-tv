@@ -1,9 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Dashboard from "./dashboard";
-import { getMovies } from "services/redux/features/movies/actions";
+import Dashboard from "./movies";
 import { logout } from "services/redux/features/authentication/actions";
 import { generateMovies } from "utilities/test-utils/stubs";
-import { DASHBOARD, SETTINGS } from "routes/routes-config";
+import { MOVIES, SETTINGS } from "routes/routes-config";
 import { setStore } from "services/redux";
 import Movie from "models/movie";
 import { ConnectedComponent } from "utilities/test-utils/wrappers";
@@ -42,7 +41,7 @@ describe("Testing the Dashboard page", () => {
 
     const dashboardTitle = getByTestId("template__title");
 
-    expect(dashboardTitle).toHaveTextContent("Secret Dashboard");
+    expect(dashboardTitle).toHaveTextContent("Trending Movies");
   });
 
   it("should show the correct header title", () => {
@@ -50,16 +49,16 @@ describe("Testing the Dashboard page", () => {
 
     const dashboardTitle = getByTestId("header__title");
 
-    expect(dashboardTitle).toHaveTextContent("Dashboard");
+    expect(dashboardTitle).toHaveTextContent("Movies & TV");
   });
 
   it("should links point to the correct URI", () => {
     const { getByTestId } = screen;
 
-    const sidebarLinkToDashboard = getByTestId("sidebar__nav-link__dashboard");
-    const sidebarLinkToSettings = getByTestId("sidebar__nav-link__settings");
+    const sidebarLinkToDashboard = getByTestId("sidebar__nav-link__movies");
+    const sidebarLinkToSettings = getByTestId("sidebar__nav-link__tv");
 
-    expect(sidebarLinkToDashboard).toHaveAttribute("href", DASHBOARD);
+    expect(sidebarLinkToDashboard).toHaveAttribute("href", MOVIES);
     expect(sidebarLinkToSettings).toHaveAttribute("href", SETTINGS);
   });
 

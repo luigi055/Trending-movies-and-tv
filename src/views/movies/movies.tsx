@@ -13,7 +13,7 @@ const Dashboard = () => {
   }, [dispatch]);
 
   return (
-    <PageTemplate headerTitle="Dashboard" pageTitle="Secret Dashboard">
+    <PageTemplate headerTitle="Movies & TV" pageTitle="Trending Movies">
       <ScrollBox>
         {movies.map((movie) => (
           <ViewCard

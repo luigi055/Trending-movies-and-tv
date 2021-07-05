@@ -1,5 +1,5 @@
 import { NavLink, useHistory } from "react-router-dom";
-import { DASHBOARD, LOGIN, SETTINGS } from "routes/routes-config";
+import { MOVIES, LOGIN, SETTINGS } from "routes/routes-config";
 import { useDispatch } from "react-redux";
 import { logout } from "services/redux/features/authentication/actions";
 import styled, { css } from "styled-components";
@@ -49,18 +49,18 @@ const ViewSidebar = () => {
     <Aside>
       <Navigation>
         <NavLink
-          to={DASHBOARD}
-          data-testid="sidebar__nav-link__dashboard"
+          to={MOVIES}
+          data-testid="sidebar__nav-link__movies"
           activeClassName="active-link"
         >
-          Dashboard
+          Movies
         </NavLink>
         <NavLink
           to={SETTINGS}
-          data-testid="sidebar__nav-link__settings"
+          data-testid="sidebar__nav-link__tv"
           activeClassName="active-link"
         >
-          Settings
+          TV Shows
         </NavLink>
       </Navigation>
       <Button data-testid="signout__btn" onClick={handleLogoutClick}>

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import { selectSessionToken } from "services/redux/features/authentication/selectors";
-import { DASHBOARD } from "../routes-config";
+import { MOVIES } from "../routes-config";
 import { CustomRouteProps } from "./types";
 
 export const PublicRoute: React.FC<CustomRouteProps> = ({
@@ -14,11 +14,7 @@ export const PublicRoute: React.FC<CustomRouteProps> = ({
     <Route
       {...rest}
       render={(props) => {
-        return isLoggedIn ? (
-          <Redirect to={DASHBOARD} />
-        ) : (
-          <Component {...props} />
-        );
+        return isLoggedIn ? <Redirect to={MOVIES} /> : <Component {...props} />;
       }}
     />
   );
