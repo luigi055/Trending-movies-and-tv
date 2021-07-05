@@ -18,15 +18,15 @@ Sinces this project is an technical assessment, there are some of the technical 
 
 - Use React, Redux and Typescript
 - Use JWT to manage user session and to decode the authenticated user.
-- Fetch data from an external API to feel the 2 protected pages.
+- Fetch data from an external API to fill the 2 protected pages.
 
-so, in the first point, it was clear so the easier way to start a react typescript projects is using create react app with the typescript template. so environment was easier to set, then I installed Redux, Redux Sagas and the rest of the packages to start rocking!
+In the first point, it was clear so the easier way to start a react / typescript projects is using create react app with the typescript template. so environment was easier to set, then I installed Redux, Redux Sagas and the rest of the packages to start rocking!
 
-For the JWT authentication I was in doubt on which how to manage this. I was deciding among create my own service (It would take extra unnecessary work and also I would need a server. so, discarded), then the other two choices I know where Auth0 and Firebase. Auth0 and I'm not very comfortable with the redirection login, so I finally choose Firebase.
+For the JWT authentication I was in doubt on how to manage this. I was deciding among create my own service (It would take extra unnecessary work and also I would need a server. so, discarded), then the other two choices I know where Auth0 and Firebase. Auth0 and I'm not very comfortable with the redirection login, so I finally choose Firebase.
 
 With Firebase everything was super easy for this app so I think this was the best choice. I forced the way to normally use Firebase. since, Instead of using the firebase SDK to fetch user information and check if the user is logged in. I just take the JWT and use it as my authentication strategy.
 
-Notice That this is not the ideal use case, since I had to use the cookies to save the session token which is potentially dangerous. However, since the data inside the app is not relevant it is ok.
+Notice That this is not the ideal use case, since I had to use the cookies to save the session token which is potentially dangerous. However, since the data inside the app is not completely private, it is ok.
 
 And, finally to fetch data and feed the application pages I choose [TMDB](https://www.themoviedb.org/) because it is really cool and easy to use.
 
