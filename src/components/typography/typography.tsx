@@ -24,19 +24,19 @@ export const DesignH1 = styled(Heading)`
   line-height: 1.1;
 `;
 
-export const DesignH2 = styled(Heading).attrs({ as: "h2" })`
+export const DesignH2 = styled(Heading)`
   font-size: var(--h2);
 `;
 
-export const DesignH3 = styled(Heading).attrs({ as: "h3" })`
+export const DesignH3 = styled(Heading)`
   font-size: var(--h3);
 `;
 
-export const DesignH4 = styled(Heading).attrs({ as: "h4" })`
+export const DesignH4 = styled(Heading)`
   font-size: var(--base-size);
 `;
 
-export const DesignH5 = styled(Heading).attrs({ as: "h5" })`
+export const DesignH5 = styled(Heading)`
   font-size: var(--text-sm);
 `;
 

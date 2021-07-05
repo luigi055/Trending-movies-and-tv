@@ -9,7 +9,7 @@ export const UserCard: React.FC<UserCardProps> = ({
   return (
     <UserCardStyled>
       <TextBox>
-        <DesignH4>{name}</DesignH4>
+        <DesignH4 as="h2">{name}</DesignH4>
         <SmallText>{email}</SmallText>
       </TextBox>
       <Avatar src={avatar} alt={`${name}'s avatar`} />

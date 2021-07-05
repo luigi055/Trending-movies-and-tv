@@ -23,7 +23,9 @@ const PageTemplate: React.FC<TemplateProps> = React.memo(
           <ViewSidebar />
           <Main>
             <TitleDecoration>
-              <DesignH2 data-testid="template__title">{pageTitle}</DesignH2>
+              <DesignH2 as="h2" data-testid="template__title">
+                {pageTitle}
+              </DesignH2>
             </TitleDecoration>
             {isLoading ? (
               <Loading data-testid="loading">Loading...</Loading>
