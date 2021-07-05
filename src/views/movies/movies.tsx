@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "services/redux/features/movies/actions";
 import { selectMovies } from "services/redux/features/movies/selectors";
 
-const Dashboard = () => {
+const Movies = () => {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
 
@@ -29,4 +29,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Movies;

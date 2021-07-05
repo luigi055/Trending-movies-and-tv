@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import Settings from "./settings";
+import TV from "./tv";
 import { getSeries } from "services/redux/features/movies/actions";
 import { logout } from "services/redux/features/authentication/actions";
 import { ConnectedComponent } from "utilities/test-utils/wrappers";
 import { generateMovies } from "utilities/test-utils/stubs";
-import { MOVIES, SETTINGS } from "routes/routes-config";
+import { MOVIES, TV_SHOWS } from "routes/routes-config";
 import { setStore } from "services/redux";
 import Movie from "models/movie";
 import formatDate from "utilities/format-date";
@@ -26,13 +26,13 @@ const mockedMovies = new Movie({
   releaseAt: "2020-01-13",
 });
 
-describe("Testing the Settings page", () => {
+describe("Testing the TV page", () => {
   beforeEach(() => {
     render(
       <ConnectedComponent
         store={setStore(generateMovies({ series: [mockedMovies] }))}
       >
-        <Settings />
+        <TV />
       </ConnectedComponent>
     );
   });
@@ -42,7 +42,7 @@ describe("Testing the Settings page", () => {
 
     const dashboardTitle = getByTestId("template__title");
 
-    expect(dashboardTitle).toHaveTextContent("Settings");
+    expect(dashboardTitle).toHaveTextContent("Trending TV Shows");
   });
 
   it("should show the correct header title", () => {
@@ -50,7 +50,7 @@ describe("Testing the Settings page", () => {
 
     const dashboardTitle = getByTestId("header__title");
 
-    expect(dashboardTitle).toHaveTextContent("Settings");
+    expect(dashboardTitle).toHaveTextContent("Movies & TV");
   });
 
   it("should links point to the correct URI", () => {
@@ -60,7 +60,7 @@ describe("Testing the Settings page", () => {
     const sidebarLinkToSettings = getByTestId("sidebar__nav-link__tv");
 
     expect(sidebarLinkToDashboard).toHaveAttribute("href", MOVIES);
-    expect(sidebarLinkToSettings).toHaveAttribute("href", SETTINGS);
+    expect(sidebarLinkToSettings).toHaveAttribute("href", TV_SHOWS);
   });
 
   it("should call getSeries action once", () => {
@@ -107,7 +107,7 @@ describe("Testing the Settings page", () => {
   it("should display the loading icon when there is no series to show", () => {
     render(
       <ConnectedComponent store={setStore(generateMovies({ isLoading: true }))}>
-        <Settings />
+        <TV />
       </ConnectedComponent>
     );
 

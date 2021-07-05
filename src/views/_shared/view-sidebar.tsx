@@ -1,5 +1,5 @@
 import { NavLink, useHistory } from "react-router-dom";
-import { MOVIES, LOGIN, SETTINGS } from "routes/routes-config";
+import { MOVIES, LOGIN, TV_SHOWS } from "routes/routes-config";
 import { useDispatch } from "react-redux";
 import { logout } from "services/redux/features/authentication/actions";
 import styled, { css } from "styled-components";
@@ -56,7 +56,7 @@ const ViewSidebar = () => {
           Movies
         </NavLink>
         <NavLink
-          to={SETTINGS}
+          to={TV_SHOWS}
           data-testid="sidebar__nav-link__tv"
           activeClassName="active-link"
         >

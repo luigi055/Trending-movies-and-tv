@@ -13,7 +13,7 @@ const Settings = () => {
   }, [dispatch]);
 
   return (
-    <PageTemplate headerTitle="Settings" pageTitle="Settings">
+    <PageTemplate headerTitle="Movies & TV" pageTitle="Trending TV Shows">
       <ScrollBox>
         {series.map((serie) => (
           <ViewCard

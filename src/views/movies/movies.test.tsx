@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Dashboard from "./movies";
+import Movies from "./movies";
 import { logout } from "services/redux/features/authentication/actions";
 import { generateMovies } from "utilities/test-utils/stubs";
-import { MOVIES, SETTINGS } from "routes/routes-config";
+import { MOVIES, TV_SHOWS } from "routes/routes-config";
 import { setStore } from "services/redux";
 import Movie from "models/movie";
 import { ConnectedComponent } from "utilities/test-utils/wrappers";
@@ -25,13 +25,13 @@ const mockedMovies = new Movie({
   releaseAt: "2020-01-13",
 });
 
-describe("Testing the Dashboard page", () => {
+describe("Testing the Movies page", () => {
   beforeEach(() => {
     render(
       <ConnectedComponent
         store={setStore(generateMovies({ movies: [mockedMovies] }))}
       >
-        <Dashboard />
+        <Movies />
       </ConnectedComponent>
     );
   });
@@ -59,7 +59,7 @@ describe("Testing the Dashboard page", () => {
     const sidebarLinkToSettings = getByTestId("sidebar__nav-link__tv");
 
     expect(sidebarLinkToDashboard).toHaveAttribute("href", MOVIES);
-    expect(sidebarLinkToSettings).toHaveAttribute("href", SETTINGS);
+    expect(sidebarLinkToSettings).toHaveAttribute("href", TV_SHOWS);
   });
 
   it("should show the logout button with github button", () => {
@@ -102,7 +102,7 @@ describe("Testing the Dashboard page", () => {
   it("should display the loading icon when there is no movies to show", () => {
     render(
       <ConnectedComponent store={setStore(generateMovies({ isLoading: true }))}>
-        <Dashboard />
+        <Movies />
       </ConnectedComponent>
     );
 
